@@ -266,6 +266,29 @@
             }
         }
 
+        /* Footer Styles */
+        .footer {
+            width: 100%;
+            padding: 20px;
+            background-color: #f5f5f5;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer a {
+            color: #E1001E;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -277,7 +300,7 @@
 
 <div class="tool-container">
     <h1>
-        <img src="https://www.rot-weiss-essen.de/wp-content/themes/RotWeissEssen/images/Rot-Weiss-Essen-Vereinslogo.png" alt="Logo" class="logo" />
+        <img src="https://www.rot-weiss-essen.de/wp-content/themes/RotWeissEssen/images/Rot-Weiss-Essen-Vereinslogo.png" alt="Logo" class="logo">
         Julian's Spielstand Tool
     </h1>
 
@@ -330,6 +353,13 @@
 
 <!-- Toast Notification -->
 <div id="toast" class="toast"></div>
+
+<!-- Footer -->
+<div class="footer">
+    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Liveticker_Tool" target="_blank">Liveticker Tool</a>
+    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Posting_Tool" target="_blank">Posting Tool</a>
+    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Spielstand_Tool" target="_blank">Spielstand Tool</a>
+</div>
 
 <script>
     // Darkmode Toggle
