@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julian's Tools</title>
+    <style>
+        /* Allgemeine Styles für den Hintergrund */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Hellere Hintergrundfarbe für die Seite */
+            color: #333; /* Dunklere Schriftfarbe im Hellmodus */
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark Mode für die gesamte Seite */
+        body.dark-mode {
+            background-color: #222; /* Dunklerer Hintergrund für Dark Mode */
+            color: white; /* Helle Schriftfarbe im Dark Mode */
+        }
+
+        /* Header-Stil */
+        header {
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Logo */
+        #logo {
+            max-width: 200px;
+            margin-top: 10px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333; /* Titel in normalem Zustand dunkel */
+            transition: color 0.3s;
+        }
+
+        /* Dark Mode für den Titel */
+        body.dark-mode h1 {
+            color: white; /* Titel wird weiß im Darkmode */
+        }
+
+        /* Buttons Container (Flat UI Box) */
+        .buttons-container {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #f4f4f4; /* Heller Hintergrund für die Box im Hellmodus */
+            border-radius: 15px; /* Abgerundete Ecken für die Box */
+            display: inline-block;
+            padding: 20px 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sanfter Schatten im Hellmodus */
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Dark Mode für die Box */
+        body.dark-mode .buttons-container {
+            background-color: #444; /* Dunkler Hintergrund für die Box im Darkmode */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Intensiverer Schatten im Darkmode */
+        }
+
+        /* Button Styles */
+        .button {
+            background-color: #E1001E; /* Rote Farbe für Buttons */
+            color: white;
+            font-size: 18px;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px; /* Abgerundete Ecken für Buttons */
+            text-decoration: none;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: #cc0000; /* Dunklere rote Farbe beim Hover */
+        }
+
+        /* Darkmode Button Styles */
+        .dark-mode-button {
+            background-color: #E1001E;
+            color: white;
+            font-size: 24px;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        .dark-mode-button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Julian's Tools</h1>
+    <img id="logo" src="https://www.rot-weiss-essen.de/wp-content/themes/RotWeissEssen/images/Rot-Weiss-Essen-Vereinslogo.png" alt="Logo">
+</header>
+
+<div class="buttons-container">
+    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Liveticker_Tool" class="button">Liveticker Tool</a>
+    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Posting_Tool" class="button">Posting Tool</a>
+    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Spielstand_Tool" class="button">Spielstand Tool</a>
+</div>
+
+<button class="dark-mode-button" id="darkModeButton" onclick="toggleDarkMode()">🌙</button>
+
+<script>
+    // Funktion zum Umschalten des Dark Modes
+    function toggleDarkMode() {
+        const body = document.body;
+        const button = document.getElementById('darkModeButton');
+        
+        body.classList.toggle('dark-mode'); // Dark Mode aktivieren oder deaktivieren
+        
+        if (body.classList.contains('dark-mode')) {
+            button.textContent = '☀️';  // Wechsel zu Sonne Emoji
+        } else {
+            button.textContent = '🌙';  // Wechsel zu Mond Emoji
+        }
+    }
+</script>
+
+</body>
+</html>
