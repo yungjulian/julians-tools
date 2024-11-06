@@ -265,45 +265,45 @@
                 margin-top: 10px;
             }
         }
+/* Footer Styles */
+.footer {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5; /* Standard Hintergrundfarbe */
+    color: #333; /* Standard Textfarbe */
+}
 
-    /* Footer Styles */
-    .footer {
-        width: 100%;
-        padding: 20px;
-        text-align: center;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-        background-color: #f5f5f5; /* Standard Hintergrundfarbe */
-        color: #333; /* Standard Textfarbe */
-    }
+.footer a {
+    color: #E1001E; /* Rot für Links */
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
 
-    .footer a {
-        color: #E1001E; /* Rot für Links */
-        text-decoration: none;
-        margin: 0 15px;
-        font-size: 16px;
-    }
+.footer a:hover {
+    text-decoration: underline;
+}
 
-    .footer a:hover {
-        text-decoration: underline;
-    }
+/* Dark Mode Styles für Footer */
+body.dark .footer {
+    background-color: #333; /* Dunkler Hintergrund im Dark Mode */
+    color: #f5f5f5; /* Helle Textfarbe im Dark Mode */
+}
 
-    /* Dark Mode Styles für Footer */
-    body.dark .footer {
-        background-color: #333; /* Dunkler Hintergrund im Dark Mode */
-        color: #f5f5f5; /* Helle Textfarbe im Dark Mode */
-    }
+body.dark .footer a {
+    color: #f5f5f5; /* Helle Links im Dark Mode */
+}
 
-    body.dark .footer a {
-        color: #f5f5f5; /* Helle Links im Dark Mode */
-    }
+body.dark .footer a:hover {
+    color: #E1001E; /* Rot bei Hover im Dark Mode */
+}
 
-    body.dark .footer a:hover {
-        color: #E1001E; /* Rote Hoverfarbe für Links im Dark Mode */
-    }
     </style>
 </head>
 <body>
