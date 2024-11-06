@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julian's Liveticker-Tool</title>
+    <title>Julian's Liveticker Tool</title>
     <link rel="icon" href="https://www.rot-weiss-essen.de/wp-content/themes/RotWeissEssen/images/Rot-Weiss-Essen-Vereinslogo.png" type="image/png">
     <style>
         body {
@@ -247,7 +247,7 @@ body.dark-mode .footer a:hover {
     <div class="container">
         <div class="header">
             <img src="https://www.rot-weiss-essen.de/wp-content/themes/RotWeissEssen/images/Rot-Weiss-Essen-Vereinslogo.png" alt="RWE Logo">
-            <h1>Julian's Liveticker-Tool</h1>
+            <h1>Julian's Liveticker Tool</h1>
         </div>
 
         <textarea id="textInput" class="input-field" rows="4" placeholder="Gib den Text hier ein..." onkeydown="handleKey(event)"></textarea>
@@ -332,9 +332,9 @@ body.dark-mode .footer a:hover {
     <div id="toast" class="toast">Text kopiert!</div>
 	
 	<div class="footer">
-    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Liveticker_Tool" target="_blank">Liveticker Tool</a>
-    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Posting_Tool" target="_blank">Posting Tool</a>
-    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Spielstand_Tool" target="_blank">Spielstand Tool</a>
+    <a href="https://liveticker.moonwork.io/" target="_blank">Liveticker Tool</a>
+    <a href="https://posting.moonwork.io/" target="_blank">Posting Tool</a>
+    <a href="https://spielstand.moonwork.io/" target="_blank">Spielstand Tool</a>
 </div>
 
 
