@@ -20,10 +20,10 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Fixiert das Tool oben */
-            height: 100vh;
-            position: relative;
+            flex-direction: column;
+            min-height: 100vh; /* Sicherstellen, dass der Footer immer unten bleibt */
+            justify-content: flex-start; /* Der Container bleibt oben */
+            align-items: center; /* Container wird horizontal zentriert */
         }
 
         .container {
@@ -31,9 +31,13 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 500px;
+            width: 700px; /* Box-Breite */
             text-align: center;
-            margin-top: 20px;
+            margin-top: 20px; /* Abstand vom oberen Rand */
+            flex-grow: 0; /* Box wächst nicht */
+            margin-bottom: 20px; /* Platz für den Footer */
+            overflow: hidden; /* Verhindert, dass der Inhalt außerhalb der Box geht */
+            box-sizing: border-box;
         }
 
         h2 {
@@ -65,7 +69,9 @@
 
         .button-container {
             display: flex;
-            justify-content: space-around;
+            flex-wrap: wrap;
+            justify-content: center; /* Zentriert die Buttons */
+            gap: 15px; /* Mehr Abstand zwischen den Buttons */
             margin-bottom: 15px;
         }
 
@@ -174,6 +180,45 @@
         #darkModeToggle:hover {
             background-color: #c1001a;
         }
+
+        /* Footer Styles */
+        .footer {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #f5f5f5; /* Standard Hintergrundfarbe */
+            color: #333; /* Standard Textfarbe */
+        }
+
+        .footer a {
+            color: #E1001E; /* Rot für Links */
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Dark Mode Styles für Footer */
+        body.dark-mode .footer {
+            background-color: #333; /* Dunkler Hintergrund im Dark Mode */
+            color: #f5f5f5; /* Helle Textfarbe im Dark Mode */
+        }
+
+        body.dark-mode .footer a {
+            color: #f5f5f5; /* Helle Links im Dark Mode */
+        }
+
+        body.dark-mode .footer a:hover {
+            color: #E1001E; /* Rot bei Hover im Dark Mode */
+        }
     </style>
 </head>
 <body>
@@ -197,83 +242,89 @@
             <button onclick="insertEmoji('➡️')">➡️</button>
             <button onclick="insertEmoji('👉')">👉</button>
             <button onclick="insertEmoji('🔗')">🔗</button>
-            <button onclick="insertEmoji('🎙')">🎙</button>
-            <button onclick="insertEmoji('📺')">📺</button> <!-- Neuer Button für 📺 -->
+            <button onclick="insertEmoji('🔴')">🔴</button>
+            <button onclick="insertEmoji('⚪')">⚪</button>
         </div>
 
-        <!-- Buttons für Instagram und Twitter mit Logos -->
         <div class="button-container">
             <button id="instagramBtn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram Logo"> Instagram
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="Instagram Logo">
+                Instagram
             </button>
+
             <button id="twitterBtn">
-                <img src="https://abs.twimg.com/favicons/twitter.3.ico" alt="Twitter Logo"> Twitter
+                <img src="https://abs.twimg.com/favicons/twitter.3.ico" alt="Twitter Logo">
+                Twitter
             </button>
         </div>
 
-        <!-- Ausgabe Feld -->
-        <textarea id="outputField" readonly placeholder="Hier erscheint dein formatierteter Text..."></textarea>
+        <!-- Ausgabe-Feld -->
+        <textarea id="outputField" readonly></textarea>
 
-        <!-- Button zum Text kopieren -->
+        <!-- Kopier-Button -->
         <button id="copyBtn">Text kopieren</button>
 
-        <!-- Toast Notification -->
+        <!-- Toast-Nachricht -->
         <div id="toast" class="toast">Text wurde kopiert!</div>
     </div>
 
+    <div class="footer">
+        <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Liveticker_Tool">Liveticker Tool</a>
+        <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Posting_Tool">Posting Tool</a>
+        <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Spielstand_Tool">Spielstand Tool</a>
+    </div>
+
     <script>
+        // Funktion für Dark Mode Umschaltung
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const darkModeIcon = document.getElementById('darkModeToggle');
+            darkModeIcon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        }
+
+        // Funktion zum Einfügen von Emojis in das Textfeld
         function insertEmoji(emoji) {
             const inputField = document.getElementById('inputField');
-            const cursorPosition = inputField.selectionStart;
-            const textBefore = inputField.value.substring(0, cursorPosition);
-            const textAfter = inputField.value.substring(cursorPosition);
-            inputField.value = textBefore + emoji + ' ' + textAfter;  // Emoji mit Leerzeichen
-            inputField.selectionStart = inputField.selectionEnd = cursorPosition + emoji.length + 1;  // Cursor nach Emoji + Leerzeichen
+            const cursorPos = inputField.selectionStart;
+            const textBefore = inputField.value.substring(0, cursorPos);
+            const textAfter = inputField.value.substring(cursorPos);
+            inputField.value = textBefore + emoji + textAfter;
             inputField.focus();
+            inputField.selectionStart = cursorPos + emoji.length;
+            inputField.selectionEnd = cursorPos + emoji.length;
         }
 
+        // Funktion zum Hinzufügen von Instagram-Hashtags
         document.getElementById('instagramBtn').addEventListener('click', function() {
             const inputText = document.getElementById('inputField').value;
-            const instagramHashtags = "#rotweissessen #rwessen #rwe1907 #immeRWEiter #hafenstraße #nurderrwe";  // Hashtags ohne <p> Tags
-            const formattedText = `${inputText}\n\n${instagramHashtags}`;  // Instagram Formatierung
-            document.getElementById('outputField').value = formattedText;
+            const hashtags = '#rotweissessen #rwessen #rwe1907 #immeRWEiter #hafenstraße #nurderrwe';
+            document.getElementById('outputField').value = inputText + '\n\n' + hashtags;
         });
 
+        // Funktion zum Hinzufügen von Twitter-Hashtags
         document.getElementById('twitterBtn').addEventListener('click', function() {
             const inputText = document.getElementById('inputField').value;
-            const twitterHashtags = "#immeRWEiter #nurderrwe";  // Hashtags ohne <p> Tags
-            const formattedText = `${inputText}\n\n${twitterHashtags}`;  // Twitter Formatierung
-            document.getElementById('outputField').value = formattedText;
+            const hashtags = '#immeRWEiter #nurderrwe';
+            document.getElementById('outputField').value = inputText + '\n\n' + hashtags;
         });
 
+        // Funktion zum Kopieren des Textes
         document.getElementById('copyBtn').addEventListener('click', function() {
             const outputText = document.getElementById('outputField').value;
-            navigator.clipboard.writeText(outputText).then(function() {
-                // Zeige die Toast-Notification
-                const toast = document.getElementById('toast');
-                toast.className = "toast show";
-                setTimeout(function() {
-                    toast.className = toast.className.replace("show", "");
-                }, 2000);
-            }).catch(function(err) {
-                console.error('Fehler beim Kopieren: ', err);
-            });
-        });
-
-        function toggleDarkMode() {
-            const body = document.body;
-            const darkModeButton = document.getElementById('darkModeToggle');
-            
-            // Wechselt die Klasse für den Darkmode
-            body.classList.toggle('dark-mode');
-            
-            // Ändert den Button Text je nach Zustand
-            if (body.classList.contains('dark-mode')) {
-                darkModeButton.innerHTML = '🌞'; // Sonne für den Rückwechsel
-            } else {
-                darkModeButton.innerHTML = '🌙'; // Mond für den Darkmode
+            if (outputText) {
+                navigator.clipboard.writeText(outputText)
+                    .then(function() {
+                        const toast = document.getElementById('toast');
+                        toast.classList.add('show');
+                        setTimeout(function() {
+                            toast.classList.remove('show');
+                        }, 2000); // Toast verschwindet nach 2 Sekunden
+                    })
+                    .catch(function(err) {
+                        console.error('Fehler beim Kopieren:', err);
+                    });
             }
-        }
+        });
     </script>
 </body>
 </html>
