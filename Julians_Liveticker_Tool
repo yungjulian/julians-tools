@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julian's Liveticker-Tool</title>
     <link rel="icon" href="https://www.rot-weiss-essen.de/wp-content/themes/RotWeissEssen/images/Rot-Weiss-Essen-Vereinslogo.png" type="image/png">
+    <link rel="canonical" href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Tools_Startseite">
     <style>
         body {
             font-family: Arial, sans-serif;
