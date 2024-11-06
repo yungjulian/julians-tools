@@ -356,9 +356,9 @@
 
 <!-- Footer -->
 <div class="footer">
-    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Liveticker_Tool" target="_blank">Liveticker Tool</a>
-    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Posting_Tool" target="_blank">Posting Tool</a>
-    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Spielstand_Tool" target="_blank">Spielstand Tool</a>
+    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Liveticker_Tool">Liveticker Tool</a>
+    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Posting_Tool">Posting Tool</a>
+    <a href="https://htmlpreview.github.io/?https://github.com/yungjulian/julians-tools/blob/main/Julians_Spielstand_Tool">Spielstand Tool</a>
 </div>
 
 <script>
