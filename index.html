@@ -18,12 +18,6 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Dark Mode für die gesamte Seite */
-        body.dark-mode {
-            background-color: #222; /* Dunklerer Hintergrund für Dark Mode */
-            color: white; /* Helle Schriftfarbe im Dark Mode */
-        }
-
         /* Header-Stil */
         header {
             padding: 20px;
@@ -32,7 +26,7 @@
 
         /* Logo */
         #logo {
-            max-width: 200px;
+            max-width: 1500px;
             margin-top: 10px;
         }
 
@@ -59,12 +53,6 @@
             transition: background-color 0.3s, box-shadow 0.3s;
         }
 
-        /* Dark Mode für die Box */
-        body.dark-mode .buttons-container {
-            background-color: #444; /* Dunkler Hintergrund für die Box im Darkmode */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Intensiverer Schatten im Darkmode */
-        }
-
         /* Button Styles */
         .button {
             background-color: #E1001E; /* Rote Farbe für Buttons */
@@ -82,26 +70,6 @@
 
         .button:hover {
             background-color: #cc0000; /* Dunklere rote Farbe beim Hover */
-        }
-
-        /* Darkmode Button Styles */
-        .dark-mode-button {
-            background-color: #E1001E;
-            color: white;
-            font-size: 24px;
-            padding: 8px 16px;
-            border: none;
-            cursor: pointer;
-            border-radius: 3px;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            transition: background-color 0.3s;
-        }
-
-        .dark-mode-button:hover {
-            background-color: #cc0000;
         }
     </style>
 </head>
@@ -121,24 +89,6 @@
     <a href="https://yungjulian.github.io/schriftarten-tool/" class="button">Schriftarten Tool</a>
     <a href="https://yungjulian.github.io/stoppuhr-tool/" class="button">Stoppuhr Tool</a>
 </div>
-
-<button class="dark-mode-button" id="darkModeButton" onclick="toggleDarkMode()">🌙</button>
-
-<script>
-    // Funktion zum Umschalten des Dark Modes
-    function toggleDarkMode() {
-        const body = document.body;
-        const button = document.getElementById('darkModeButton');
-        
-        body.classList.toggle('dark-mode'); // Dark Mode aktivieren oder deaktivieren
-        
-        if (body.classList.contains('dark-mode')) {
-            button.textContent = '☀️';  // Wechsel zu Sonne Emoji
-        } else {
-            button.textContent = '🌙';  // Wechsel zu Mond Emoji
-        }
-    }
-</script>
 
 </body>
 </html>
