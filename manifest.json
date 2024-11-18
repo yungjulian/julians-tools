@@ -1,0 +1,21 @@
+{
+  "name": "Julian's Tools",
+  "short_name": "Tools",
+  "description": "Tools von Julian",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#E1001E",
+  "icons": [
+    {
+      "src": "https://i.ibb.co/ydXL640/Julians-Tools-ICON.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.ibb.co/ydXL640/Julians-Tools-ICON.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
