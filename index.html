@@ -4,86 +4,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julians Tools</title>
-    <!-- Favicon hinzufügen -->
-    <link rel="icon" href="https://www.rot-weiss-essen.de/wp-content/themes/RotWeissEssen/images/Rot-Weiss-Essen-Vereinslogo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://www.rot-weiss-essen.de/wp-content/themes/RotWeissEssen/images/Rot-Weiss-Essen-Vereinslogo.png">
     <style>
-        /* Allgemeine Styles für den Hintergrund */
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4; /* Hellere Hintergrundfarbe für die Seite */
-            color: #333; /* Dunklere Schriftfarbe im Hellmodus */
-            text-align: center;
-            transition: background-color 0.3s, color 0.3s;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
         }
 
-        /* Header-Stil */
+        body {
+            background: #0a0a0a;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
         header {
-            padding: 20px;
-            transition: background-color 0.3s, color 0.3s;
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 3rem;
         }
 
-        /* Logo */
-        #logo {
-            max-width: 200px; /* Logo auf eine Breite von 100px setzen */
-            margin-top: 10px;
+        .logo {
+            height: 80px;
+            margin-bottom: 1.5rem;
         }
 
         h1 {
-            font-size: 36px;
-            color: #333; /* Titel in normalem Zustand dunkel */
-            transition: color 0.3s;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff0000, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Buttons Container (Flat UI Box) */
-        .buttons-container {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #f4f4f4; /* Heller Hintergrund für die Box im Hellmodus */
-            border-radius: 15px; /* Abgerundete Ecken für die Box */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .tool-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tool-card h2 {
+            color: #ff4d4d;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .btn {
             display: inline-block;
-            padding: 20px 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sanfter Schatten im Hellmodus */
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-
-        /* Button Styles */
-        .button {
-            background-color: #E1001E; /* Rote Farbe für Buttons */
+            padding: 0.8rem 1.5rem;
+            background: #ff0000;
             color: white;
-            font-size: 18px;
-            padding: 15px 30px;
-            margin: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px; /* Abgerundete Ecken für Buttons */
             text-decoration: none;
-            transition: background-color 0.3s;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #cc0000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .social-links {
+            margin: 2rem 0 1.5rem; /* Hier wurde der Abstand angepasst */
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
             display: inline-block;
         }
 
-        .button:hover {
-            background-color: #cc0000; /* Dunklere rote Farbe beim Hover */
+        .social-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #ff0000;
+            transition: width 0.3s ease;
+        }
+
+        .social-links a:hover::after {
+            width: 100%;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .social-links a:hover i {
+            animation: pulse 0.8s ease-in-out infinite;
+            color: #ff0000;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                height: 60px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Der Rest des HTML-Codes bleibt unverändert -->
+    <header>
+        <div class="container">
+            <img src="https://www.rot-weiss-essen.de/wp-content/themes/RotWeissEssen/images/Rot-Weiss-Essen-Vereinslogo.png" 
+                 alt="Logo" 
+                 class="logo">
+            <h1>Julians Tools</h1>
+        </div>
+    </header>
 
-<header>
-    <h1>Julians Tools</h1>
-        <a href="https://yungjulian.github.io/julians-tools/">
-            <img src="https://www.rot-weiss-essen.de/wp-content/themes/RotWeissEssen/images/Rot-Weiss-Essen-Vereinslogo.png" alt="Logo" class="logo" id="logo">
-        </a>
-</header>
+    <div class="container">
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h2>Liveticker Tool</h2>
+                <a href="https://yungjulian.github.io/liveticker-tool/" class="btn" target="_blank" rel="noopener noreferrer">Öffnen</a>
+            </div>
 
-<div class="buttons-container">
-    <a href="https://yungjulian.github.io/liveticker-tool/" class="button">Liveticker Tool</a>
-    <a href="https://yungjulian.github.io/stoppuhr-tool/" class="button">Stoppuhr Tool</a>
-    <a href="https://yungjulian.github.io/schriftarten-tool/" class="button">Schriftarten Tool</a>
-    <a href="https://yungjulian.github.io/posting-tool/" class="button">Posting Tool</a>
-    <a href="https://yungjulian.github.io/spielstand-tool/" class="button">Spielstand Tool</a>
-</div>
+            <div class="tool-card">
+                <h2>Stoppuhr Tool</h2>
+                <a href="https://yungjulian.github.io/stoppuhr-tool/" class="btn" target="_blank" rel="noopener noreferrer">Öffnen</a>
+            </div>
 
+            <div class="tool-card">
+                <h2>Schriftarten Tool</h2>
+                <a href="https://yungjulian.github.io/schriftarten-tool/" class="btn" target="_blank" rel="noopener noreferrer">Öffnen</a>
+            </div>
+
+            <div class="tool-card">
+                <h2>Posting Tool</h2>
+                <a href="https://yungjulian.github.io/posting-tool/" class="btn" target="_blank" rel="noopener noreferrer">Öffnen</a>
+            </div>
+
+            <div class="tool-card">
+                <h2>Spielstand Tool</h2>
+                <a href="https://yungjulian.github.io/spielstand-tool/" class="btn" target="_blank" rel="noopener noreferrer">Öffnen</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/itsyungjulian/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 Julians Tools. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
 </body>
 </html>
